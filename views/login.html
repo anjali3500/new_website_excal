@@ -1,0 +1,79 @@
+<html>
+<head>
+<title>Login</title>
+<style>
+	body
+	{
+		background-image:url('images/img3.jpg');
+		background-size:cover;
+		background-repeat:no-repeat;
+		height:80vh;
+		background-attachment:fixed;
+		font-size:20px;
+		overflow-x:hidden;
+		color:white;
+		text-align:center;
+		padding:150px;
+	}
+	#submit
+	{
+		border:2px solid black;
+		border-radius:5px;
+	}
+	#reset
+	{
+		border:2px solid black;
+		border-radius:5px;
+	}
+	
+
+</style>
+</head>
+<body onload = "changeImage()">
+<form  action="/action_page.php" method="post" onsubmit="return valid()" id="form" style="border:5px solid black; border-radius:15px; margin-left:200px; margin-right:200px ">
+			<div id="frmm">
+				<h2>LOGIN</h2>
+				<input type="text" id="name" name="name" placeholder="Username" onchange="check1()" ><br>
+				<div id="alert1" style="display:none" >*(characters should be less than 8)</div><br>
+				<input type="text" id="password" name="password" placeholder="Password" onchange="check2()" ><br>
+				<div id="alert2" style="display:none">*(not a correct one)</div><br>
+				<input type="button">LOGIN</input>
+			</div>
+	
+	<script>
+			function check1()
+			{
+			var x=document.forms["form"] ;
+			var x1=x.elements[0].value.length;
+			if(x1>8)
+			document.getElementById("alert1").style.display="block";
+			else
+			document.getElementById("alert1").style.display="none";
+			}
+			function check2() {
+			var x=document.forms["form"] ;
+			var x1=x.elements[1].value.length;
+			if(x1<6)
+			document.getElementById("alert2").style.display="block";
+			else
+			document.getElementById("alert2").style.display="none";
+			}
+			function valid()
+			{
+				var x=document.forms["form"] ;
+				var x1=x.elements[0].value.length ;
+				var x2=x.elements[1].value ;
+				if(x1>10||x1==0)	
+				alert("enter correct username ") ;
+				else if(x2<6)
+				alert("enter corret password");
+				else {
+				return ;
+					}
+				return false ;
+
+				}
+		</script>	
+		</form>
+</body>
+</html>
